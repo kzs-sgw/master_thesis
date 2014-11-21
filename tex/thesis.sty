@@ -1,0 +1,112 @@
+% 表紙作成用の変数定義
+\def\thesis#1{
+	\gdef\@thesis{#1}
+}
+\def\teacher#1{
+	\gdef\@teacher{#1}
+}
+\def\organization#1{
+	\gdef\@organization{#1}
+}
+\def\engtitle#1{
+	\gdef\@engtitle{#1}
+}
+\def\idnumber#1{
+	\gdef\@idnumber{#1}
+}
+\def \course#1{
+	\gdef\@course{#1}
+}
+% 参照様式の定義(from JSK)
+\def \chapapp #1{第#1章 ：}
+
+\def \figref  #1{(Fig.\ref{#1})}
+\def \tabref  #1{(Table\ref{#1})}
+\def \equref  #1{式(\ref{#1})}
+\def \chapref #1{第\ref{#1}章}
+\def \secref  #1{\ref{#1}節}
+\def \termref #1{\ref{#1}項}
+\def \enumref #1{[\ref{#1}]}
+
+\def \circle  #1{({\ooalign{\hfil#1\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}})}
+
+\def\fnum@figure{Fig.~\thefigure}
+\def\fnum@table{Table \thetable}
+
+% 表紙
+\renewcommand{\maketitle}{%
+ 	\thispagestyle{empty}
+ 	\begin{center}
+ 	  \vspace{20mm}
+ 	  \LARGE \@thesis \\
+  	  \vspace{40mm}
+  	  \huge \@title \\
+  	  \vspace{50mm}
+  	  \LARGE \@date \\
+  	  \LARGE \@organization \\
+	  \LARGE \@course \\
+      \LARGE \@idnumber \\
+	  \huge \@author \\
+  	  \LARGE 指導教員　
+  	  \LARGE  \@teacher \\
+  	  \normalsize
+ 	\end{center}
+ 	\clearpage
+ 	\mbox{}
+ 	\thispagestyle{empty}
+ 	\clearpage
+}
+
+% 裏表紙
+\newcommand{\backtitle}{%
+	\clearpage
+	\ifodd \count0
+  	  \mbox{}
+	  \thispagestyle{empty}
+	  \clearpage
+	\else 
+	\fi
+	\thispagestyle{empty}
+	\Large
+	\vspace{2cm}
+	以上
+	\begin{center}
+	  \vspace{4cm}
+	  \large
+	  1~p ～ \pageref{back_title}~p 完\\
+	  \vspace{1cm}
+	  \@thesis \\
+	  \vspace{1cm}
+	  \@date \\
+	  \vspace{5cm}
+	  \Large
+	  \@organization 
+	  \@course \\
+	  \@idnumber 
+	  \@author \\
+	  \label{back_title}
+	  \normalsize
+	\end{center}
+}
+
+% 謝辞
+\newcommand\acknowledge{%
+	\clearpage
+	\addcontentsline{toc}{chapter}{謝辞}
+	\chapter*{謝辞}
+	\markboth{謝辞}{}
+}
+
+% 参考文献
+\newcommand{\bib}[1]{%
+	\addcontentsline{toc}{chapter}{参考文献}
+%	\bibliographystyle{junsrt}
+	\bibliographystyle{jplain}
+	\bibliography{#1}
+}
+
+% 概要
+\def\abstract{%
+	\chapter*{概要}
+	\thispagestyle{empty}
+}

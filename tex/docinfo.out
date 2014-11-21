@@ -1,0 +1,13 @@
+%
+% document data for the pdf, output from dvipdfm
+%
+% please translate the name of the file "docinfo.txt" to "docinfo.out" and type "out2uni docinfo" by using cmd.
+%
+\catcode`\@=0
+@catcode`@\=12
+@def@PDFTITLE{\376\377\060\152\060\223\060\113\060\156\170\024\172\166}
+@def@PDFSUBJECT{\376\377\060\152\060\374\060\223\060\113}
+@def@PDFAUTHOR{\376\377\212\260\060\113}
+@def@PDFKEYWORDS{\376\377\060\202\060\210\060\202\060\210\000\054\060\135\060\210\060\135\060\210}
+@catcode`@\=0
+\catcode`\@=12
